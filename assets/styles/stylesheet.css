@@ -23,6 +23,7 @@ html, body {
     src: url(fonts/simplifica.ttf) format('truetype');
 }
 
+/* NAVIGATION */
 #active a {
     background-color: #373737;
     color: white;
@@ -60,11 +61,44 @@ html, body {
     border-top: 5px solid #373737;
 }
 
+/* NAVIGATION PROMOTION */
+
+.promotion-banner-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #373737;
+    cursor: context-menu;
+}
+
+.promotion-col {
+    border-right: 2px white;
+    color: white;
+    position: relative;
+    width: 100%;
+    padding: 5px 0 5px 0;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.promotion-col p {
+    margin: 0;
+}
+
+.promotion-col span {
+    font-weight: bolder;
+}
+
 /* NAVIGATION CART */
 
 .nav-cart {
     float: right;
 }
+
+/* MAIN PAGE */
 
 .category-img {
     box-shadow: 0 0 2px black;
@@ -82,4 +116,108 @@ html, body {
 .slider-wrapper {
     margin: auto;
     max-width: 1000px;
+}
+
+.slider-wrapper img {
+    margin: 0 auto;
+}
+
+/* PRODUCT LISTING PAGE */
+
+.product-col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    padding: 10px 25px 10px 25px;
+    margin: 25px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.product-col p {
+    font-weight: bold;
+}
+
+.product-col a {
+    display: block;
+    text-decoration: none;
+    color: #373737;
+}
+
+.product-col a:hover {
+    color: black;
+}
+
+.product-col img:hover {
+    cursor: pointer;
+}
+
+/* PRODUCT PAGE */
+
+.product-container {
+    width: 70%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.product-left-container {
+    float: left;
+    max-width: 35%;
+    margin: 25px;
+}
+
+.product-right-container {
+    float: right;
+    max-width: 35%;
+    margin: 150px 25px 25px 25px;
+}
+
+.product-description-top {
+    margin: 10px 0 10px 0;
+}
+
+.product-description-top h4 {
+    font-weight: bold;
+}
+
+.product-description-top p {
+    font-style: italic;
+}
+
+.product-cart {
+    color: #373737;
+}
+
+.product-cart input {
+    background-color: #F5F5F5;
+    border: 1px solid #373737;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+}
+
+.product-cart span:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.product-cart p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-slider-wrapper {
+    margin: auto;
+    max-width: 1000px;
+}
+
+.product-slider-wrapper img {
+    margin: 0 auto;
 }

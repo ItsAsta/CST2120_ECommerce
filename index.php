@@ -14,12 +14,28 @@ headerOutput('Home', array("assets/styles/stylesheet.css", "assets/styles/bootst
             <li><a href="index.php"><i class="fas fa-sign-in-alt"></i></i></a></li>
         </div>
     </ul>
+    <div class="promotion-banner-container">
+        <div class="row">
+            <div class="promotion-col">
+                <span>SALE ON FEATURED TRAINERS</span>
+                <p>20% off on all featured trainers</p>
+            </div>
+            <div class="promotion-col">
+                <span>FREE DELIVERY</span>
+                <p>Free delivery on orders over £30</p>
+            </div>
+            <div class="promotion-col">
+                <span>FREE RETURNS</span>
+                <p>Return unwanted trainers within 30 days</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-4">
-            <img class="category-img" src="assets/resources/men-air-force-1.jpg">
+            <a href="men_products.php"><img class="category-img" src="assets/resources/men-air-force-1.jpg"></a>
             <h3 style="margin-top: 15px">MEN</h3>
         </div>
         <div class="col-sm-4">
