@@ -68,7 +68,7 @@ headerOutput('Men', array("assets/styles/stylesheet.css", "assets/styles/bootstr
 
 
             <div class="row" style="float: right">
-                <button class="pay-btn" type="button">PLACE ORDER</button>
+                <button class="dark-btn" type="button">PLACE ORDER</button>
             </div>
         </div>
     </div>

@@ -13,11 +13,11 @@ h4 {
     font-weight: bold !important;
 }
 
-button {
+button, button:focus {
     outline: none !important;
 }
 
-button:focus {
+input, input:focus {
     outline: none !important;
 }
 
@@ -348,7 +348,7 @@ td {
     outline: none;
 }
 
-.pay-btn {
+.dark-btn {
     font-size: 14px;
     color: white;
     font-weight: bold;
@@ -361,7 +361,7 @@ td {
     margin-top: 5px;
 }
 
-.pay-btn:hover {
+.dark-btn:hover {
     background-color: #2d2d2d;
 }
 
@@ -371,4 +371,18 @@ td {
 
 .center-form {
     text-align: center;
+}
+
+/* STAFF LOGIN PAGE */
+
+.form-wrapper {
+    margin: 0 auto;
+    text-align: center;
+    padding: 25px;
+}
+
+.form-wrapper input {
+    margin: 5px;
+    width: 300px;
+    display: block;
 }
