@@ -41,20 +41,26 @@ function navigationOutput($currentPage)
     loopNavigation($currentPage);
 
     // At the end, we'll just close our element tags.
-    echo '</ul></div>';
+    echo '</ul>';
+    outputPromotionNav();
+    echo '</div>';
 }
 
 //This function will print out our navigation.
 function loopNavigation($currentPage)
 {
     // An array variable with our page names, which we'll match using the index with our second array.
-    $pageTitle = array("Home", "Score History", "Leaderboard", "Login");
+    $pageTitle = array("Home", "Men", "Women", "Cart", "Staff Login");
 
     // An array variable with our file names which we'll redirect to using the HREF attribute.
-    $fileNames = array("index.php", "scoreHistory.php", "leaderboard.php", "login.php");
+    $fileNames = array("index.php", "products.php", "products.php", "cart.php", "staffLogin.php");
 
     // We iterating over the length of $names array using a for loop.
     for ($i = 0; $i < count($pageTitle); $i++) {
+        if ($i == 3) {
+            navigationFunctionality();
+            break;
+        }
         echo '<li ';
         /*
             In this if statement, we are checking if the name we currently iterated on is the same as the page we
@@ -65,28 +71,35 @@ function loopNavigation($currentPage)
             echo 'id="active" ';
         }
 
-        // We checking if the user is logged in by checking if there is any cookies set.
-        if (isset($_COOKIE['username'])) {
-            // If the if statement returns true, we'll get the 3rd index in our array and change the string to logout.
-            // Since the user is logged in, we want to display logout instead of login/register.
-            $pageTitle[3] = "Logout";
-        }
-
-        // Since we got a function that clears the cookie when the user logs out, we need the id "account-status"
-        // Therefore, we check if the string match the string in the 3rd index, which is either login/register or logout.
-        // We then add the id attribute.
-        if ($pageTitle[$i] == $pageTitle[3]) {
-            echo 'id="account-status" ';
-        }
-
-        /*
-            Since we are iterating over our array, we know that both arrays are of same length. For that, we know that
-            the page name and file name are matching. So we'll just get the value of each string from the array using the index.
-         */
-
         // We then echo out our html code.
         echo '><a href="' . $fileNames[$i] . '">' . $pageTitle[$i] . '</a></li>';
     }
+}
+
+function outputPromotionNav() {
+    echo '<div class="promotion-banner-container">
+        <div class="row">
+            <div class="promotion-col">
+                <span>SALE ON FEATURED TRAINERS</span>
+                <p>20% off on all featured trainers</p>
+            </div>
+            <div class="promotion-col">
+                <span>FREE DELIVERY</span>
+                <p>Free delivery on orders over £30</p>
+            </div>
+            <div class="promotion-col">
+                <span>FREE RETURNS</span>
+                <p>Return unwanted trainers within 30 days</p>
+            </div>
+        </div>
+    </div>';
+}
+
+function navigationFunctionality() {
+    echo '<div class="nav-cart">
+            <li><a href="cart.php"><i class="fas fa-shopping-cart">1</i></a></li>
+            <li><a href="staffLogin.php"><i class="fas fa-sign-in-alt"></i></i></a></li>
+        </div>';
 }
 
 //Outputs all the contents for the footer.
