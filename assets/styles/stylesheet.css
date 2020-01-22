@@ -9,6 +9,22 @@ html, body {
     letter-spacing: 3px;
 }
 
+h4 {
+    font-weight: bold !important;
+}
+
+button {
+    outline: none !important;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+form {
+    display: inline-block !important;
+}
+
 /*Hides the horizontal and vertical scrollbar from our website.*/
 ::-webkit-scrollbar {
     display: none;
@@ -220,4 +236,139 @@ html, body {
 
 .product-slider-wrapper img {
     margin: 0 auto;
+}
+
+/* CART PAGE */
+table {
+    table-layout: auto;
+    width: 100%;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+    border-bottom: 2px solid #ddd;
+}
+
+td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.cart-summary-container {
+    overflow: hidden;
+    display: inline-block;
+    text-align: left;
+    width: 30%;
+    margin: 25px;
+    border-radius: 10px;
+    background-color: #373737;
+    border: 2px solid white;
+    color: white;
+    box-shadow: 0 0 15px 1px black;
+}
+
+.cart-summary-wrapper {
+    padding: 15px;
+}
+
+.checkout-btns {
+    text-align: center;
+}
+
+.checkout-btns button {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 5px;
+    border-radius: 10px;
+    background-color: #505050;
+    border: 1PX #F5F5F5;
+    width: 100%;
+    padding: 5px 0 5px 0;
+}
+
+.checkout-btns button:hover {
+    color: white;
+    background-color: #4b4b4b;
+}
+
+.summary-right-values {
+    text-align: right;
+}
+
+.cart-product-container {
+    float: left;
+    display: inline-block;
+    max-width: 60%;
+    margin: 25px;
+}
+
+.product-photo {
+    margin: 5px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.product-details {
+    vertical-align: top;
+    display: inline-block;
+    margin: 5px;
+}
+
+.price-qty-total {
+    text-align: center;
+    vertical-align: top;
+}
+
+.price-qty-total input {
+    max-width: 50px;
+    text-align: center;
+}
+
+/* CHECKOUT PAGE */
+
+.customer-info-container {
+    display: inline-block;
+    border-radius: 15px;
+    padding: 50px;
+    box-shadow: 0 0 15px 1px #858585;
+}
+
+.client-info-container h4 {
+    text-align: center;
+}
+
+.checkout-inputs {
+    margin: 5px;
+    width: 100%;
+}
+
+.checkout-inputs:focus {
+    outline: none;
+}
+
+.pay-btn {
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 5px;
+    border-radius: 5px;
+    background-color: #414141;
+    border: 1PX #F5F5F5;
+    padding: 5px;
+    width: 130px;
+    margin-top: 5px;
+}
+
+.pay-btn:hover {
+    background-color: #2d2d2d;
+}
+
+.checkout-form {
+    width: 60%;
+}
+
+.center-form {
+    text-align: center;
 }
