@@ -28,15 +28,18 @@ navigationOutput('Product Page');
                 embroidered Swooshes. Repeat branding.</p>
         </div>
         <div class="product-cart">
-            <select>
-                <option value="" disabled selected>SELECT SIZE</option>
-                <option value="10">10</option>
-                <option value="9">9</option>
-                <option value="8">8</option>
-                <option value="7">7</option>
-            </select>
-            <label>Quantity: </label>
-            <input type="NUMBER" min="1" max="10" step="1" value="1">
+            <label> Size
+                <select>
+                    <option value="" disabled selected>SELECT SIZE</option>
+                    <option value="10">10</option>
+                    <option value="9">9</option>
+                    <option value="8">8</option>
+                    <option value="7">7</option>
+                </select>
+            </label>
+            <label> Quantity
+                <input type="NUMBER" min="1" max="10" step="1" value="1">
+            </label>
             <p>£144.99</p>
             <span><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></span>
         </div>
