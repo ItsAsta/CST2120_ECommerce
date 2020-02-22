@@ -1,44 +1,42 @@
 <?php
 include_once('inc/phpFunc.php');
-headerOutput('Men', array("assets/styles/stylesheet.css", "assets/styles/bootstrap.css", "assets/slick/slick.css", "assets/slick/slick-theme.css"));
-navigationOutput('Men');
+headerOutput('Products', array("assets/styles/stylesheet.css", "assets/styles/bootstrap.css", "assets/slick/slick.css", "assets/slick/slick-theme.css"));
+navigationOutput('Products');
 ?>
 
 <div class="container">
-<!--  PRODUCTS DISPLAY 3X ROWS  -->
-    <div class="row">
+    <!--  PRODUCTS DISPLAY 3X ROWS  -->
+
+    <?php
+    require __DIR__ . '/vendor/autoload.php';
+    $mongoClient = (new MongoDB\Client);
+    $db = $mongoClient->ecommerce;
+    $collection = $db->products;
+
+    //    Iterate over our whole collection
+    $trainers = $collection->find();
+
+    echo '<div class="row">';
+    $i = 0;
+    //              iterate over the returned collection
+    foreach ($trainers as $key => $trainer) {
+        echo '<form action="product_page.php" method="post">
         <div class="product-col">
-            <a href="product_page.php"><img src="assets/resources/male_nike_airmax_97_red_black.jpg" width="250px" height="auto"></a>
-            <a>Nike Air Max 97 Red/Black</a>
-            <p>£144.99</p><a href="product_page.php"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i></a>
-        </div>
-        <div class="product-col">
-            <a href="product_page.php"><img src="assets/resources/male_nike_airmax_97_red_black.jpg" width="250px" height="auto"></a>
-            <a>Nike Air Max 97 Red/Black</a>
-            <p>£144.99</p><a href="product_page.php"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i></a>
-        </div>
-        <div class="product-col">
-            <a href="product_page.php"><img src="assets/resources/male_nike_airmax_97_red_black.jpg" width="250px" height="auto"></a>
-            <a>Nike Air Max 97 Red/Black</a>
-            <p>£144.99</p><a href="product_page.php"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="product-col">
-            <a href="product_page.php"><img src="assets/resources/male_nike_airmax_97_red_black.jpg" width="250px" height="auto"></a>
-            <a>Nike Air Max 97 Red/Black</a>
-            <p>£144.99</p><a href="product_page.php"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i></a>
-        </div>
-        <div class="product-col">
-            <a href="product_page.php"><img src="assets/resources/male_nike_airmax_97_red_black.jpg" width="250px" height="auto"></a>
-            <a>Nike Air Max 97 Red/Black</a>
-            <p>£144.99</p><a href="product_page.php"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i></a>
-        </div>
-        <div class="product-col">
-            <a href="product_page.php"><img src="assets/resources/male_nike_airmax_97_red_black.jpg" width="250px" height="auto"></a>
-            <a>Nike Air Max 97 Red/Black</a>
-            <p>£144.99</p><a href="product_page.php"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i></a>
-        </div>
-    </div>
+            <img src="upload/' . $trainer["fileName"] . '" width="250px" height="auto">
+            <a>' . $trainer["name"] . '</a>
+            <p>£' . $trainer["price"] . '</p>
+            <input type="hidden" name="productName" value="' . $trainer["name"] . '">
+            <input type="submit" value="View">
+        </div></form>';
+
+        $i++;
+//        Make a new row for every 3 iterations so only 3 products are display on a single row
+        if ($i % 3 == 0 && $i != count($trainers)) {
+            echo '<div class="row"></div>';
+        }
+    }
+
+    echo '</div>';
+    ?>
 </div>
 

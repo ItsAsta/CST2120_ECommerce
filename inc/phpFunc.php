@@ -49,18 +49,15 @@ function navigationOutput($currentPage)
 //This function will print out our navigation.
 function loopNavigation($currentPage)
 {
+    session_start();
     // An array variable with our page names, which we'll match using the index with our second array.
-    $pageTitle = array("Home", "Men", "Women", "Cart", "Staff Login");
+    $pageTitle = array("Home", "Products", "Basket", "Account", "Login");
 
     // An array variable with our file names which we'll redirect to using the HREF attribute.
-    $fileNames = array("index.php", "products.php", "products.php", "cart.php", "staffLogin.php");
+    $fileNames = array("index.php", "products.php", "basket.php", "account.php", "customer_login.php");
 
     // We iterating over the length of $names array using a for loop.
     for ($i = 0; $i < count($pageTitle); $i++) {
-        if ($i == 3) {
-            navigationFunctionality();
-            break;
-        }
         echo '<li ';
         /*
             In this if statement, we are checking if the name we currently iterated on is the same as the page we
@@ -71,12 +68,30 @@ function loopNavigation($currentPage)
             echo 'id="active" ';
         }
 
+        // We checking if the user is logged in by checking if there is any session set.
+        if (array_key_exists("userId", $_SESSION)) {
+            // If the if statement returns true, we'll get the 4th index in our array and change the string to logout.
+            // Since the user is logged in, we want to display logout instead of login/register.
+            $pageTitle[4] = "Logout";
+        }
+
+        if (array_key_exists("basket", $_SESSION)) {
+            $pageTitle[2] = "Basket (" + count($_SESSION["basket"], COUNT_NORMAL) + ")";
+        }
+
+        if ($pageTitle[$i] == "Logout") {
+            echo 'id="account-status" ';
+            echo '><a href="mongoDbHandlers/end_session.php">' . $pageTitle[$i] . '</a></li>';
+            break;
+        }
+
         // We then echo out our html code.
-        echo '><a href="' . $fileNames[$i] . '">' . $pageTitle[$i] . '</a></li>';
+        echo '><a id="' . $pageTitle[$i] . '" href="' . $fileNames[$i] . '">' . $pageTitle[$i] . '</a></li>';
     }
 }
 
-function outputPromotionNav() {
+function outputPromotionNav()
+{
     echo '<div class="promotion-banner-container">
         <div class="row">
             <div class="promotion-col">
@@ -95,10 +110,11 @@ function outputPromotionNav() {
     </div>';
 }
 
-function navigationFunctionality() {
+function navigationFunctionality()
+{
     echo '<div class="nav-cart">
-            <li><a href="cart.php"><i class="fas fa-shopping-cart">1</i></a></li>
-            <li><a href="staffLogin.php"><i class="fas fa-sign-in-alt"></i></i></a></li>
+            <li><a href="basket.php"><i class="fas fa-shopping-cart">1</i></a></li>
+            <li><a href="customer_login.php">LOGOUT</a></li>
         </div>';
 }
 

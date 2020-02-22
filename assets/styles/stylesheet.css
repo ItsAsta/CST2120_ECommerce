@@ -179,8 +179,18 @@ form {
     color: black;
 }
 
-.product-col img:hover {
-    cursor: pointer;
+.product-col img:hover, .product-col a:hover, .product-col p:hover {
+    cursor: default;
+}
+
+.product-col input {
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    background-color: #efeff1;
+    border: 1px solid #373737;
+    border-radius: 5px;
+    text-align: center;
 }
 
 /* PRODUCT PAGE */
@@ -192,6 +202,10 @@ form {
     margin-top: 50px;
     margin-right: auto;
     margin-left: auto;
+}
+
+.product-container form {
+    display: block !important;
 }
 
 .product-left-container {
@@ -239,7 +253,7 @@ form {
 
 .product-cart input {
     height: 30px;
-    width: 50px;
+    width: 100px;
     background-color: #F5F5F5;
     border: 1px solid #373737;
     padding: 5px;
@@ -450,4 +464,10 @@ td {
     width: 200px;
     margin: 5px 0 5px 5px;
     resize: none;
+}
+
+/* CUSTOMER LOGIN/REGISTER */
+
+.aHover:hover {
+    cursor: pointer;
 }
